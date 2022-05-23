@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NFTCard } from './components/NFTCard'
 
 const Home = () => {
   const [walletAddress, setWalletAddress] = useState('')
@@ -89,6 +90,12 @@ const Home = () => {
         >
           Search
         </button>
+      </div>
+      <div>
+        {nfts.length &&
+          nfts.map((nft) => {
+            return <NFTCard nft={nft} id={nft.id} />
+          })}
       </div>
     </div>
   )
