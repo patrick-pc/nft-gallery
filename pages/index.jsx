@@ -52,15 +52,17 @@ const Home = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <div>
+    <div className="flex flex-col items-center justify-center gap-y-3 py-8">
+      <div className="flex w-full flex-col items-center justify-center gap-y-2">
         <input
+          disabled={fetchForCollection}
           onChange={(e) => {
             setWalletAddress(e.target.value)
           }}
           value={walletAddress}
           type="text"
           placeholder="Wallet Address"
+          className="w-2/5 rounded-lg bg-slate-100 p-2 text-gray-800 focus:outline-blue-300 disabled:bg-slate-50 disabled:text-gray-50"
         />
         <input
           onChange={(e) => {
@@ -69,13 +71,15 @@ const Home = () => {
           value={collectionAddress}
           type="text"
           placeholder="Collection Address"
+          className="w-2/5 rounded-lg bg-slate-100 p-2 text-gray-800 focus:outline-blue-300 disabled:bg-slate-50 disabled:text-gray-50"
         />
-        <label>
+        <label className="cursor-pointer text-gray-500">
           <input
             onChange={(e) => {
               setFetchForCollection(e.target.checked)
             }}
             type="checkbox"
+            className="mr-2"
           />
           Fetch for collection
         </label>
@@ -87,14 +91,15 @@ const Home = () => {
               fetchNFTs()
             }
           }}
+          className="mt-3 w-1/5 rounded-sm bg-blue-400 px-4 py-2 disabled:bg-slate-500"
         >
           Search
         </button>
       </div>
-      <div>
+      <div className="flex w-5/6 flex-wrap justify-center gap-y-12 gap-x-2">
         {nfts.length &&
           nfts.map((nft) => {
-            return <NFTCard nft={nft} id={nft.id} />
+            return <NFTCard nft={nft} id={nft.id.tokennId} />
           })}
       </div>
     </div>
