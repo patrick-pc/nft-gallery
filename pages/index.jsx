@@ -52,7 +52,7 @@ const Home = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center gap-y-3 py-8">
+    <div className="flex flex-col items-center justify-center gap-y-8 py-8">
       <div className="flex w-full flex-col items-center justify-center gap-y-2">
         <input
           disabled={fetchForCollection}
@@ -91,12 +91,12 @@ const Home = () => {
               fetchNFTs()
             }
           }}
-          className="mt-3 w-1/5 rounded-sm bg-blue-400 px-4 py-2 disabled:bg-slate-500"
+          className="mt-3 w-1/5 rounded-sm bg-blue-400 px-4 py-2 text-white disabled:bg-slate-500"
         >
           Search
         </button>
       </div>
-      <div className="flex w-5/6 flex-wrap justify-center gap-y-12 gap-x-2">
+      <div className="flex w-5/6 flex-wrap justify-center gap-y-12 gap-x-12">
         {nfts.length &&
           nfts.map((nft) => {
             return <NFTCard nft={nft} id={nft.id.tokennId} />
