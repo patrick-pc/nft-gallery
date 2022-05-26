@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { NFTCard } from './components/NFTCard'
+import { NFTCard } from '../components/NFTCard'
 
 const Home = () => {
   const [walletAddress, setWalletAddress] = useState('')
